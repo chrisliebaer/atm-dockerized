@@ -35,7 +35,7 @@ services:
       - "INITIAL_DELAY=1h"
       - "RCON_HOST=server"
       - "PAUSE_IF_NO_PLAYERS=true"
-      - "RCON_PASSWORD="
+      - "RCON_PASSWORD=password"
       - "PRUNE_BACKUPS_DAYS=2"
       - "PRE_BACKUP_SCRIPT=echo 'sleeping 10s to allow write to settle'; sleep 10s"
     volumes:
