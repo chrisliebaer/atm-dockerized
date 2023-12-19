@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -eu
 
 # run atm script to install forge but set to install only
@@ -13,7 +13,7 @@ fi
 declare -A settings=(
 	[allow-flight]=true
 	[enable-rcon]=true
-	[rcon.password]=""
+	[rcon.password]="password"
 	[broadcast-rcon-to-ops]=false
 	[motd]="All the Mods 9 v$ATM_VERSION"
 )

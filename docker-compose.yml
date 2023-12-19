@@ -24,6 +24,8 @@ services:
   backup:
     image: itzg/mc-backup
     restart: "always"
+    networks:
+      - rcon
     environment:
       - "TZ=Europe/Berlin"
       - "BACKUP_NAME=world"
@@ -34,7 +36,7 @@ services:
       - "RCON_HOST=server"
       - "PAUSE_IF_NO_PLAYERS=true"
       - "RCON_PASSWORD="
-      - "PRUNE_BACKUPS_DAYS=4"
+      - "PRUNE_BACKUPS_DAYS=2"
       - "PRE_BACKUP_SCRIPT=echo 'sleeping 10s to allow write to settle'; sleep 10s"
     volumes:
       - world:/world:ro
