@@ -1,0 +1,25 @@
+version: '3.9'
+services:
+  server:
+    build:
+      context: "dockerfiles/server"
+      args:
+        SERVER_FILES_URL: "https://mediafilez.forgecdn.net/files/4953/500/Server-Files-0.2.31.zip"
+
+    restart: "always"
+    stop_grace_period: 2m
+    ports:
+      - "25565:25565"
+    volumes:
+      - world:/mc-server/world
+    labels:
+      - "salvage.tide.daily=world"
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 26677
+        hard: 46677
+
+
+volumes:
+  world:

@@ -1,0 +1,6 @@
+-XX:+UnlockExperimentalVMOptions
+-XX:+DisableExplicitGC
+-XX:+UseZGC
+-XX:+ZGenerational
+-Xmx16G
+-Xms16G
