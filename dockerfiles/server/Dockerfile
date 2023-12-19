@@ -27,5 +27,5 @@ RUN \
   && ln -s /mc-server/world/server/banned-ips.json /mc-server/banned-ips.json \
   && ln -s /mc-server/world/server/banned-players.json /mc-server/banned-players.json
 
-ENTRYPOINT ["./startserver.sh"]
+ENTRYPOINT ["./custom_start.sh"]
 STOPSIGNAL SIGINT

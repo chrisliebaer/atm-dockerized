@@ -5,9 +5,10 @@ services:
       context: "dockerfiles/server"
       args:
         SERVER_FILES_URL: "https://mediafilez.forgecdn.net/files/4953/500/Server-Files-0.2.31.zip"
-
     restart: "always"
     stop_grace_period: 2m
+    networks:
+      - rcon
     ports:
       - "25565:25565"
     volumes:
@@ -19,7 +20,30 @@ services:
       nofile:
         soft: 26677
         hard: 46677
+  
+  backup:
+    image: itzg/mc-backup
+    restart: "always"
+    environment:
+      - "TZ=Europe/Berlin"
+      - "BACKUP_NAME=world"
+      - "SRC_DIR=/world"
+      - "DEST_DIR=/backup"
+      - "BACKUP_INTERVAL=1h"
+      - "INITIAL_DELAY=1h"
+      - "RCON_HOST=server"
+      - "PAUSE_IF_NO_PLAYERS=true"
+      - "RCON_PASSWORD="
+      - "PRUNE_BACKUPS_DAYS=4"
+      - "PRE_BACKUP_SCRIPT=echo 'sleeping 10s to allow write to settle'; sleep 10s"
+    volumes:
+      - world:/world:ro
+      - backup:/backup
 
+# rcon network
+networks:
+  rcon:
 
 volumes:
   world:
+  backup:
