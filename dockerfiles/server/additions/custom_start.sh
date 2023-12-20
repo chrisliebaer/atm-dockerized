@@ -23,4 +23,4 @@ for key in "${!settings[@]}"; do
 done
 
 FORGE_UNIX_ARGS="$(ls libraries/net/minecraftforge/forge/*/unix_args.txt)"
-exec java @${FORGE_UNIX_ARGS} nogui
+exec java @user_jvm_args.txt @${FORGE_UNIX_ARGS} nogui
