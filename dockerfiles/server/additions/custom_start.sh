@@ -1,9 +1,6 @@
 #!/bin/bash
 set -eu
 
-# run atm script to install forge but set to install only
-ATM9_INSTALL_ONLY=true ./startserver.sh
-
 ATM_VERSION="UNKNOWN"
 if  [[ -f .version ]]; then
 	ATM_VERSION=$(cat .version)
