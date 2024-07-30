@@ -17,7 +17,8 @@ COPY --from=builder /mc-server /mc-server
 WORKDIR /mc-server
 RUN ATM9_INSTALL_ONLY=true ./startserver.sh
 
-FROM eclipse-temurin:21-jre-alpine
+# custom-start requires bash, so alpine is not an option
+FROM eclipse-temurin:21-jre
 COPY --from=installer /mc-server /mc-server
 WORKDIR /mc-server
 
