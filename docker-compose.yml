@@ -4,7 +4,7 @@ services:
     build:
       context: "dockerfiles/server"
       args:
-        SERVER_FILES_URL: "https://mediafilez.forgecdn.net/files/5682/556/Server-Files-0.3.2.zip"
+        SERVER_FILES_URL: "https://mediafilez.forgecdn.net/files/5900/31/Server-Files-0.3.5.zip"
     restart: "always"
     stop_grace_period: 2m
     networks:
